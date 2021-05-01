@@ -1,35 +1,38 @@
-import { Query } from 'react-apollo';
-import {IQueryResult, IViewPersonProps} from '../interfaces/components';
+import {IViewPersonProps} from '../interfaces/components';
 import {GET_PERSON} from '../graphql';
 import {WrapperComponent} from '../components/wrapper';
 import {HeaderTitleCard} from '../components/card';
-import {TextWhite} from '../components/text';
-import {ButtonComponent} from '../components/button';
+import {TextEastBayTitle, TextLabel} from '../components/text';
+import {BackButton} from '../components/button';
 
-export const ViewPerson = ({ personName }: IViewPersonProps) => {
-    return (<Query<IQueryResult> query={GET_PERSON} variables={{"name": personName}}>
-        {({ data }) => {
-            if (!data) {
-                return null;
-            }
-            return (
-                <WrapperComponent> 
-                    <>                   
-                        <HeaderTitleCard>
-                            <TextWhite>
-                                Data Display
-                            </TextWhite>
-                        </HeaderTitleCard>
-                        <HeaderTitleCard>
-                            <ButtonComponent>
-                                <TextWhite>
-                                    Go Back
-                                </TextWhite>
-                            </ButtonComponent>
-                        </HeaderTitleCard>
-                    </>
-                </WrapperComponent>
-            );
-        }}
-    </Query>);
+import {
+    useQuery,
+} from "@apollo/client";
+
+export const ViewPerson = ({ personName, props }: IViewPersonProps) => {
+    const {loading, error, data} = useQuery(GET_PERSON, {
+        variables:{personName},
+        //pollInterval: 70000,
+    });
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error :(</p>;
+    const {person} = data;
+    return (
+        <WrapperComponent> 
+            <>                   
+                <HeaderTitleCard>
+                    <TextEastBayTitle>
+                        {person.name}
+                    </TextEastBayTitle>
+                </HeaderTitleCard>
+                <HeaderTitleCard>
+                    <BackButton props={props}>
+                        <TextLabel>
+                            Go Back
+                        </TextLabel>
+                    </BackButton>
+                </HeaderTitleCard>
+            </>
+        </WrapperComponent>
+    );
 };

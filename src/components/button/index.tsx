@@ -4,14 +4,15 @@ import {IStyleProps} from '../../theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage } from '../../app/slices/pagination';
 
-export const ButtonComponent = ({ children, props:{history} }: IChildrenProps) => {
+export const ButtonComponent = ({ children, props:{history}, extraData }: IChildrenProps) => {
     return <Button
         borderRadius='10px'
         padding='8px 0'
         onClick={() => {
-            console.log(history);
-            console.log('Route!');
-            history.push("/person");
+            history.push({
+                pathname: '/person',
+                state: { personName: extraData }
+            });
         }}
     >
         {children}
@@ -40,6 +41,18 @@ export const PreviousButton = ({ children }: IChildrenProps) => {
             if( page > 1) {
                 dispatch(changePage({ page: page - 1 }));
             }
+        }}
+    >
+        {children}
+    </Button>;
+};
+
+export const BackButton = ({ children, props:{ history } }: IChildrenProps) => {
+    return <Button
+        {...IStyleProps}
+        width='50%'
+        onClick={() => {
+            history.push('/');
         }}
     >
         {children}

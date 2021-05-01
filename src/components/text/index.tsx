@@ -14,7 +14,7 @@ export const TextLabel = ({ children }: IChildrenProps) => {
     return <Text 
         fontWeight='700'
         fontSize='14px'
-        width='50px'
+        width='50%'
     >
         {children}
     </Text>;

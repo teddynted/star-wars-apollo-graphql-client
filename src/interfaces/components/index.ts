@@ -11,10 +11,6 @@ export interface IPeople extends ICommon {}
 
 export interface IPerson extends ICommon {}
 
-export interface IQueryResult {
-    people: IPeople;
-}
-
 export interface IViewPeopleProps {
     page: number;
     props?: any
@@ -22,6 +18,7 @@ export interface IViewPeopleProps {
 
 export interface IViewPersonProps {
     personName: string;
+    props?: any
 }
 export interface IViewList {
     people: any;
@@ -31,5 +28,6 @@ export interface IViewList {
 export interface IChildrenProps {
     children: ReactChild | ReactChildren
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
-    props?: any
+    props?: any,
+    extraData?: any
 }

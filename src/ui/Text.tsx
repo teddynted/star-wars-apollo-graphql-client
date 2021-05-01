@@ -10,4 +10,8 @@ export const Text = styled.p<ITextProps>`
     width: ${({ width }) => width || 'auto'};
     border: ${({ border }) => border || 'none'};
     font-weight: ${({ fontWeight }) => fontWeight || 'light'};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;

@@ -8,8 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_API: ${{ github.workflow }}_REACT_APP_API
     steps:
       - uses: actions/checkout@v2
+      - run: echo "::set-env name=REACT_APP_API::${{ secrets[env.REACT_APP_API] }}"
+      - run: echo $REACT_APP_API
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -19,4 +23,4 @@ jobs:
       - name: Build React App
         run: npm install && npm run build
       - name: Deploy app build to S3 bucket
-        run: aws s3 sync /home/runner/work/star-wars-apollo-graphql-client/star-wars-apollo-graphql-client/build/ s3://nextjs-portfolio/ --delete
+        run: aws s3 sync /home/runner/work/star-wars-apollo-graphql-client/star-wars-apollo-graphql-client/build/ s3://star-wars-apollo-graphql-client/ --delete

@@ -8,9 +8,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import ApiConfig from "./config/ApiConfig";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/dev/graphql',
+  uri: `${ApiConfig.graphqlURL}`,
   cache: new InMemoryCache()
 });
 
@@ -20,8 +21,6 @@ ReactDOM.render(
       <Provider store={store}>
           <Router>
             <>
-              {/* <Link to={'/'}>Home</Link>
-              <Link to={'/about'}>About</Link> */}
               <Switch>
                   <Route exact path="/" component={App} />
                   <Route exact path="/person" component={PersonView} />

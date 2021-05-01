@@ -1,14 +1,11 @@
-import {TextEastBayTitle, TextEastBay, TextLabel} from '../components/text';
-import {HeaderTitleCard, HeaderNavCard} from '../components/card';
-import {NextButton, PreviousButton} from '../components/button';
+import {TextEastBay, TextLabel} from './text';
+import {HeaderNavCard} from './card';
+import {NextButton, PreviousButton} from './button';
 import { useSelector } from 'react-redux';
 
-export const Header = () => {
+export const Navigation = () => {
     const { page } = useSelector((state: any) => state.paginationReducer);
-    return <>
-        <HeaderTitleCard>
-            <TextEastBayTitle>Star Wars API</TextEastBayTitle>
-        </HeaderTitleCard>
+    return(
         <HeaderNavCard>
             <>
                 <PreviousButton>
@@ -20,5 +17,5 @@ export const Header = () => {
                 </NextButton>
             </>
         </HeaderNavCard>
-    </>
+    );
 };

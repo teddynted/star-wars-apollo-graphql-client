@@ -11,4 +11,8 @@ export const Button = styled.a<IButtonProps>`
     cursor: ${({ cursor }) => cursor || 'pointer'};
     width: ${({ width }) => width || '100%'};
     border-radius: ${({ borderRadius }) => borderRadius || '0'};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
