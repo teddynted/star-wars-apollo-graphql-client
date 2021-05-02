@@ -21,7 +21,7 @@ export const ViewPerson = ({ personName, props }: IViewPersonProps) => {
             <>                   
                 <HeaderTitleCard>
                     <>
-                        <Person fontSize="large" style={{color: ColorPalette.cadetBlue}} />
+                        <Person fontSize="large" style={{color: ColorPalette.mountainMeadow}} />
                         <BodyText>
                             {person[0].name}
                         </BodyText>

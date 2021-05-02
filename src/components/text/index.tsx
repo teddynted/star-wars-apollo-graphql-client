@@ -57,3 +57,12 @@ export const FooterText = ({ children }: IChildrenProps) => {
         {children}
     </Text>;
 };
+
+export const NameText = ({ children }: IChildrenProps) => {
+    return <Text 
+        fontWeight='400'
+        fontSize='12px'
+    >
+        {children}
+    </Text>;
+};
