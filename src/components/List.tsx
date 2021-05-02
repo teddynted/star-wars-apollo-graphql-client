@@ -1,7 +1,6 @@
 import {IViewList} from '../interfaces/components';
 import {TextWhite} from '../components/text';
 import {ButtonComponent} from '../components/button';
-//import { Link, Route, Switch } from "react-router-dom";
 
 const List = ({ people, props }: IViewList) => {
     const cards = people?.people?.map((item: any, i: number) => 
