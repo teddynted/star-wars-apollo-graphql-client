@@ -5,9 +5,7 @@ import {Footer} from './Footer';
 
 export const Layout = ({ children }: IChildrenProps) => {
     return(
-        <BaseLayout
-            width='50%'
-        >
+        <BaseLayout>
             <Header />
             {children}
             <Footer />

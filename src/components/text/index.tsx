@@ -40,6 +40,15 @@ export const TextWhite = ({ children }: IChildrenProps) => {
     </Text>;
 };
 
+export const BodyText = ({ children }: IChildrenProps) => {
+    return <Text 
+        fontWeight='400'
+        fontSize='18px'
+    >
+        {children}
+    </Text>;
+};
+
 export const FooterText = ({ children }: IChildrenProps) => {
     return <Text 
         fontWeight='400'
