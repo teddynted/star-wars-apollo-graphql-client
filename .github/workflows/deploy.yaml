@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REACT_APP_API: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      REACT_APP_API: ${{ secrets.REACT_APP_API }}
     steps:
       - uses: actions/checkout@v2
       - run: echo $REACT_APP_API
