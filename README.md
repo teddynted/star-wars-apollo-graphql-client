@@ -1,8 +1,10 @@
+# Star Wars API
+
+GraphQL API consumption with ReactJS(TypeScript)
 # Installation
 
-git clone https://github.com/teddynted/star-wars-apollo-graphql-client.git
-
 ```bash
+git clone https://github.com/teddynted/star-wars-apollo-graphql-client.git
 cd star-wars-apollo-graphql-client
 npm i
 ```
